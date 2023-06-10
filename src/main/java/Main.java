@@ -2,6 +2,9 @@ public class Main {
     public static void main(String[] args) {
         int count = 0;
 
+
+        // pętla liczy do tysiąca i wywołuje dwie metody. Pierwsza zamienia liczbę iterowanią w słowną liczbę
+        // i ją zwraca jako strong a druga zlicza litery w tym stringu. Potem zmienna count zlicza wszystkie litery
         for (int i = 1; i <= 1000; i++) {
             String numberInWords = convertNumberToWords(i);
             int lettersCount = countLetters(numberInWords);
@@ -28,6 +31,7 @@ public class Main {
             String unitWord = convertNumberToWords(number % 10);
             return tenWord + " " + unitWord;
         } else if (number <= 999) {
+            // to samo co w Ifie wyżej z tą różnicą że dochodzą 'setki'
             String hundredWord = convertNumberToWords(number / 100) + " hundred";
             String tenWord = convertNumberToWords(number % 100);
             if (tenWord.equals("zero")) {
@@ -36,6 +40,7 @@ public class Main {
                 return hundredWord + " and " + tenWord;
             }
         } else {
+            // to samo co wyzej ale z tysiącami
             String thousandWord = convertNumberToWords(number / 1000) + " thousand";
             String hundredWord = convertNumberToWords(number % 1000);
             if (hundredWord.equals("zero")) {
@@ -45,7 +50,7 @@ public class Main {
             }
         }
     }
-
+    // metoda liczy litery w słowie poprzez pętlę i dodaje do tablicy.
     public static int countLetters(String word) {
         int count = 0;
         for (char c : word.toCharArray()) {
